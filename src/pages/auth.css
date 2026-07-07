@@ -1,0 +1,26 @@
+.auth-card {
+  background: linear-gradient(145deg, rgba(11, 18, 32, 0.95), rgba(17, 24, 42, 0.92));
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  box-shadow: 0 24px 90px rgba(4, 8, 20, 0.35);
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(34, 211, 238, 0.65);
+  box-shadow: 0 0 0 0.2rem rgba(34, 211, 238, 0.2);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.auth-card .btn {
+  border-radius: 999px;
+}
