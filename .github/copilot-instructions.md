@@ -36,3 +36,5 @@ Architecture:
 - Use an Entity-Component or Scene-based architecture.
 - Keep each class focused on a single responsibility.
 - Keep files reasonably small. Split large files into modules when it improves readability and maintainability.
+
+For development environment use Node.js, npm, and Vite.
