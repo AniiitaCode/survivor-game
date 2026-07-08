@@ -4,12 +4,15 @@ import { renderRegisterPage } from './pages/register.js';
 import { renderLoginPage } from './pages/login.js';
 import { renderHomePage } from './pages/home.js';
 import { renderProfilePage } from './pages/profile.js';
+import { renderDashboardPage } from './pages/dashboard.js';
+
 
 const routes = [
     { path: '/', view: renderHomePage },
     { path: '/login', view: renderLoginPage },
     { path: '/register', view: renderRegisterPage },
-    { path: '/profile', view: renderProfilePage, protected: true }
+    { path: '/profile', view: renderProfilePage, protected: true },
+    { path: '/dashboard', view: renderDashboardPage, protected: true }
 ];
 
 const parseRoute = () => {
