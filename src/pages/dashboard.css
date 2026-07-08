@@ -1,0 +1,17 @@
+.badge {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Dashboard mode cards: ensure they wrap nicely on small screens */
+@media (max-width: 575.98px) {
+  .card-glow .d-flex.justify-content-between {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .card-glow .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+}
