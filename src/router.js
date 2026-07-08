@@ -3,11 +3,13 @@ import { renderLayout } from './components/layout.js';
 import { renderRegisterPage } from './pages/register.js';
 import { renderLoginPage } from './pages/login.js';
 import { renderHomePage } from './pages/home.js';
+import { renderProfilePage } from './pages/profile.js';
 
 const routes = [
     { path: '/', view: renderHomePage },
     { path: '/login', view: renderLoginPage },
     { path: '/register', view: renderRegisterPage },
+    { path: '/profile', view: renderProfilePage, protected: true }
 ];
 
 const parseRoute = () => {
