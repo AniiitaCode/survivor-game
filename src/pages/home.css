@@ -1,0 +1,46 @@
+.hero-card {
+  backdrop-filter: blur(18px);
+}
+
+#leaderboardBtn {
+    font-weight: bold;
+    background-color: #00ffcc;
+    border-color: #00ffcc;
+    color: #000;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+#leaderboardBtn:hover {
+    transform: scale(1.05);
+}
+
+#home-canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 575.98px) {
+  #home-buttons {
+    flex-direction: column;
+    gap: 0.75rem !important;
+  }
+
+  #home-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  #leaderboardBtn {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #home-buttons {
+    flex-wrap: wrap;
+  }
+}
