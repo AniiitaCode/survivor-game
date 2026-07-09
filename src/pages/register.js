@@ -58,12 +58,22 @@ export const renderRegisterPage = () => ({
           }
         }
       });
+
       if (error) {
         message.textContent = error.message;
         message.className = 'small mt-3 text-danger';
         return;
       }
+
       if (data?.user) {
+
+        const { error: profileError } = await supabase
+          .from('profiles')
+          .insert({
+            id: data.user.id,
+            username: `Anonymous-${data.user.id.slice(0, 8)}` + `...`
+          });
+
         message.textContent = 'Account created. Redirecting…';
         message.className = 'small mt-3 text-success';
         redirectTo('/dashboard');
