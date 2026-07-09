@@ -1,0 +1,126 @@
+/* -------------------------------------------------------
+   GAME CANVAS
+------------------------------------------------------- */
+#game-canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 1.25rem;
+  display: block;
+  background: linear-gradient(135deg, #050816, #101b33);
+  box-shadow: 0 0 40px rgba(34, 211, 238, 0.16);
+  touch-action: none;
+}
+
+/* -------------------------------------------------------
+   HUD STATS BAR (sits above canvas in normal document flow)
+------------------------------------------------------- */
+.game-hud-bar .bg-dark {
+  backdrop-filter: blur(10px);
+}
+
+/* -------------------------------------------------------
+   GAME MODAL OVERLAYS (intentionally cover the canvas)
+   Start / Level Complete / Game Over
+------------------------------------------------------- */
+#game-menu-overlay,
+#level-complete-overlay,
+#game-over-overlay {
+  backdrop-filter: blur(10px);
+  background: rgba(3, 7, 18, 0.42);
+  pointer-events: auto;
+}
+
+/* -------------------------------------------------------
+   TABLET (≤ 991px)
+------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .game-hud-bar .bg-dark {
+    padding: 0.6rem 0.8rem !important;
+  }
+
+  .game-hud-bar .progress {
+    margin-bottom: 0.5rem !important;
+    height: 8px !important;
+  }
+
+  .game-hud-bar .small {
+    font-size: 0.8rem !important;
+  }
+
+  .game-hud-bar #status-label {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* -------------------------------------------------------
+   MOBILE (≤ 767px)
+------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .game-hud-bar .bg-dark {
+    padding: 0.5rem 0.65rem !important;
+  }
+
+  .game-hud-bar .progress {
+    margin-bottom: 0.3rem !important;
+    height: 6px !important;
+  }
+
+  /* Overlay modal sizing on mobile */
+  #game-menu-overlay .bg-dark,
+  #level-complete-overlay .bg-dark,
+  #game-over-overlay .bg-dark {
+    padding: 1.25rem !important;
+    max-width: 92% !important;
+    width: 92%;
+    margin: 0 auto;
+  }
+
+  #game-menu-overlay h3,
+  #level-complete-overlay h3,
+  #game-over-overlay h3 {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  #game-menu-overlay p,
+  #level-complete-overlay p,
+  #game-over-overlay p {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  #game-menu-overlay button,
+  #level-complete-overlay button,
+  #game-over-overlay button {
+    padding: 0.45rem 1.25rem !important;
+    font-size: 0.9rem !important;
+    min-height: 44px;
+  }
+
+  /* Touch-friendly back-button */
+  .d-flex.flex-wrap.justify-content-between a.btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* -------------------------------------------------------
+   SMALL MOBILE (≤ 575px)
+------------------------------------------------------- */
+@media (max-width: 575.98px) {
+  /* Stack mode title and back button vertically */
+  .d-flex.flex-wrap.justify-content-between {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem;
+  }
+
+  .d-flex.flex-wrap.justify-content-between a.btn {
+    align-self: flex-start;
+  }
+
+  #game-canvas {
+    border-radius: 0.75rem;
+  }
+}

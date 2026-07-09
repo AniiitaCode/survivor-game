@@ -5,6 +5,7 @@ import { renderLoginPage } from './pages/login.js';
 import { renderHomePage } from './pages/home.js';
 import { renderProfilePage } from './pages/profile.js';
 import { renderDashboardPage } from './pages/dashboard.js';
+import { renderGamePage } from './pages/game.js';
 
 
 const routes = [
@@ -12,7 +13,8 @@ const routes = [
     { path: '/login', view: renderLoginPage },
     { path: '/register', view: renderRegisterPage },
     { path: '/profile', view: renderProfilePage, protected: true },
-    { path: '/dashboard', view: renderDashboardPage, protected: true }
+    { path: '/dashboard', view: renderDashboardPage, protected: true },
+    { path: '/games/:id', view: renderGamePage, protected: true },
 ];
 
 const parseRoute = () => {
