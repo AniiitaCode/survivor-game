@@ -1,0 +1,117 @@
+body {
+  background: #0b0f1a;
+  overflow-x: hidden;
+}
+
+.leaderboard-page {
+  position: relative;
+}
+
+.leaderboard-page::before,
+.leaderboard-page::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #4f46e5 0%, transparent 60%);
+  filter: blur(80px);
+  animation: float 10s infinite alternate ease-in-out;
+  opacity: 0.4;
+  /* Prevent pseudo-elements from triggering horizontal scroll */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.leaderboard-page::after {
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, #ec4899 0%, transparent 60%);
+}
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(60px); }
+}
+
+/* Glass table wrapper: scrollable on mobile */
+.glass-table {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure table doesn't shrink below content */
+.glass-table table {
+  min-width: 480px;
+}
+
+.leader-card {
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  color: white;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.leader-card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.rank {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.score {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.name {
+  opacity: 0.8;
+}
+
+.gold { border: 1px solid #facc15; }
+.silver { border: 1px solid #cbd5e1; }
+.bronze { border: 1px solid #fb923c; }
+
+.leader-card {
+  animation: floatIn 0.6s ease;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Top-3 cards: full width on mobile */
+@media (max-width: 767.98px) {
+  .leader-card {
+    padding: 14px;
+  }
+
+  .score {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .leaderboard-page::before,
+  .leaderboard-page::after {
+    width: 200px;
+    height: 200px;
+  }
+}
