@@ -8,6 +8,7 @@ import { renderDashboardPage } from './pages/dashboard.js';
 import { renderGamePage } from './pages/game.js';
 import { renderLeaderboardPage } from './pages/leaderboard.js';
 import { renderStatisticsPage } from './pages/statistics.js';
+import { renderAdminPage } from './pages/admin.js';
 
 const routes = [
     { path: '/', view: renderHomePage },
@@ -17,7 +18,8 @@ const routes = [
     { path: '/dashboard', view: renderDashboardPage, protected: true },
     { path: '/games/:id', view: renderGamePage, protected: true },
     { path: '/leaderboard', view: renderLeaderboardPage, protected: true },
-    { path: '/statistics', view: renderStatisticsPage, protected: true }
+    { path: '/statistics', view: renderStatisticsPage, protected: true },
+    { path: '/admin', view: renderAdminPage, protected: true }
 ];
 
 const parseRoute = () => {
