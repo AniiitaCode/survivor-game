@@ -1,0 +1,16 @@
+/* Statistics page responsive styles */
+
+/* Ensure stat cards don't squish on narrow screens */
+@media (max-width: 575.98px) {
+  .card-body.text-center .fs-1 {
+    font-size: 2rem !important;
+  }
+
+  .card-body h2 {
+    font-size: 1.75rem !important;
+  }
+
+  .card-body h6 {
+    font-size: 0.8rem;
+  }
+}
