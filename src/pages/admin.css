@@ -1,0 +1,172 @@
+.admin-page {
+    color: white;
+}
+
+.admin-title {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 900;
+    color: #22d3ee;
+    text-shadow:
+        0 0 10px #22d3ee,
+        0 0 30px #2563eb;
+}
+
+.admin-subtitle {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 40px;
+}
+
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.user-card {
+    background:
+        linear-gradient(145deg,
+            rgba(30, 41, 59, .9),
+            rgba(15, 23, 42, .95));
+    border: 1px solid rgba(34, 211, 238, .3);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow:
+        0 0 20px rgba(34, 211, 238, .15);
+    transition: .3s;
+}
+
+.user-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 0 35px rgba(34, 211, 238, .45);
+}
+
+.avatar-wrapper {
+    margin-bottom: 15px;
+}
+
+.user-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border:
+        3px solid #22d3ee;
+    box-shadow:
+        0 0 20px #22d3ee;
+}
+
+.user-info {
+    text-align: center;
+}
+
+.user-info h3 {
+    margin: 5px;
+    color: white;
+    word-break: break-word;
+}
+
+.role-badge {
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.role-badge.admin {
+    background: #ef4444;
+    box-shadow:
+        0 0 15px #ef4444;
+}
+
+.role-badge.user {
+    background: #2563eb;
+    box-shadow:
+        0 0 15px #2563eb;
+}
+
+.created-date {
+    margin-top: 5px;
+}
+
+.user-info p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.user-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-actions button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    /* Touch-friendly */
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.switch-role {
+    background: #7c3aed;
+}
+
+.switch-role:hover {
+    background: #a855f7;
+}
+
+.inspect-user {
+    background:#0891b2;
+}
+
+.inspect-user:hover {
+    background:#22d3ee;
+    box-shadow:
+    0 0 15px #22d3ee;
+}
+
+.error-box {
+    color: #ef4444;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Responsive admin */
+@media (max-width: 767.98px) {
+    .admin-title {
+        font-size: 26px;
+    }
+
+    .admin-subtitle {
+        margin-bottom: 24px;
+        font-size: 0.9rem;
+    }
+
+    .users-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-title {
+        font-size: 22px;
+    }
+
+    .user-avatar {
+        width: 72px;
+        height: 72px;
+    }
+}
