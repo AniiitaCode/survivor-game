@@ -22,6 +22,20 @@ export const renderHeader = () => {
         const nav = document.getElementById('header-nav');
         const user = await getCurrentUser();
 
+        let isAdmin = false;
+
+        if (user) {
+            const supabase = getSupabaseClient();
+
+            const { data: profile } = await supabase
+                .from('profiles')
+                .select('role')
+                .eq('id', user.id)
+                .single();
+
+            isAdmin = profile?.role === 'admin';
+        }
+
         nav.insertAdjacentHTML('beforeend', `
         <div class="nav-icons">
             <img src="${zombieImg}" class="icon zombie" alt="Zombie" height="50" width="45">
@@ -31,13 +45,21 @@ export const renderHeader = () => {
     `);
 
         if (user) {
-            nav.innerHTML = `
+            nav.innerHTML =
+
+                `
         <li class="nav-item"><a id="dashboardBtn" class="nav-link" href="/dashboard" data-route>Dashboard</a></li>
         <li class="nav-item"><a id="profileBtn" class="nav-link" href="/profile" data-route>Profile</a></li>
+        <li class="nav-item"><a id="statisticsBtn" class="nav-link" href="/statistics" data-route>My Statistics</a></li>
+
+        ${isAdmin ? `
+        <li class="nav-item"><a id="adminBtn" class="nav-link" href="/admin" data-route>Admin</a></li>
+        ` : ''}
+
         <button id="logout-button" class="btn btn-outline-light btn-sm" style="font-weight:bold">Logout</button>
         `;
-        }
 
+        }
 
         if (user && window.location.pathname === "/dashboard") {
             document.getElementById("dashboardBtn").style.display = "none";
@@ -48,29 +70,17 @@ export const renderHeader = () => {
         }
 
 
-        //*if (!user) {
-        //*  nav.innerHTML = `
-        //*    <li class="nav-item"><a class="nav-link" href="/" data-route>Home</a></li>
-        //*    <li class="nav-item"><a class="nav-link" href="/login" data-route>Login</a></li>
-        //*    <li class="nav-item"><a class="nav-link" href="/register" data-route>Register</a></li>
-        //*  `;
-        //*  return;
-        //*}
-        //*nav.innerHTML = `
-        //*  <li class="nav-item"><a class="nav-link" href="/" data-route>Home</a></li>
-        //*  <li class="nav-item"><a class="nav-link" href="/dashboard" data-route>Dashboard</a></li>
-        //*  <li class="nav-item"><a class="nav-link" href="/profile" data-route>Profile</a></li>
-        //*  <li class="nav-item">
-        //*    <button id="logout-button" class="btn btn-outline-light btn-sm">Logout</button>
-        //*  </li>
-        //*`;
         const logoutButton = document.getElementById('logout-button');
-        logoutButton.addEventListener('click', async () => {
-            const supabase = getSupabaseClient();
-            await supabase.auth.signOut();
-            redirectTo('/');
-        });
+
+        if (logoutButton) {
+            logoutButton.addEventListener('click', async () => {
+                const supabase = getSupabaseClient();
+                await supabase.auth.signOut();
+                redirectTo('/');
+            });
+        };
     };
 
     renderNav();
+
 };
